@@ -3,6 +3,8 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: grafana
+  annotations:
+    flux.weave.works/automated: "true"
 data:
   GF_SERVER_ROOT_URL: https://grafana.vogorental.com
   GF_DATABASE_TYPE: postgres
