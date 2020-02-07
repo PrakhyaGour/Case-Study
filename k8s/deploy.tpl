@@ -2,6 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: hello
+  annotations:
+    flux.weave.works/automated: "true"
+    flux.weave.works/tag.hello: regexp:^((?!tmp).)*$
   labels:
     app: hello
 spec:
