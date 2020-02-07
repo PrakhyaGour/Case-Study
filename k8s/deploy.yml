@@ -1,4 +1,3 @@
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -19,4 +18,4 @@ spec:
     spec:
       containers:
       - name: hello
-        image: 513293136839.dkr.ecr.ap-south-1.amazonaws.com/hello:ff3b5d73cb8705125e673bc0542546a064cb6ac6
+        image: 513293136839.dkr.ecr.ap-south-1.amazonaws.com/hello:$279b8073afe8d409e1a0778c9a6c0dda28640947
