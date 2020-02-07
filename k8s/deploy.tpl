@@ -15,4 +15,4 @@ spec:
     spec:
       containers:
       - name: hello
-        image: registry.gitlab.com/lucj/hello:GIT_COMMIT
+        image: docker push 513293136839.dkr.ecr.ap-south-1.amazonaws.com/hello:GIT_COMMIT
