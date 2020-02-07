@@ -9,7 +9,7 @@ data:
   GF_DATABASE_HOST: prod-infra-db.ckk1ooeb2hvi.ap-south-1.rds.amazonaws.com
   GF_DATABASE_NAME: grafana
   GF_DATABASE_USER: infra_admin
-  GF_DATABASE_PASSWORD: JvKmOKsNJy79iIKsaGcq18A16VOMvE6P
+  GF_DATABASE_PASSWORD: JvKmOKsNJy79iIKsaGcq18A16VOMvE6PIBIBCXIIWCNEICNEINC
   GF_AUTH_GOOGLE_ENABLED: "true"
   GF_AUTH_GOOGLE_ALLOW_SIGN_UP: "true"
   GF_AUTH_GOOGLE_CLIENT_ID: 1029074587610-ukqp9od7m1tsp72vhji1n9d8nrj3d3ud.apps.googleusercontent.com
