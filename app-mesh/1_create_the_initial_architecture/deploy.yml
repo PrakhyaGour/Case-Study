@@ -18,4 +18,4 @@ spec:
     spec:
       containers:
       - name: hello
-        image: 513293136839.dkr.ecr.ap-south-1.amazonaws.com/hello:a2028cd0e2f47fe41f234ce14d6beb27d031caee
+        image: 513293136839.dkr.ecr.ap-south-1.amazonaws.com/hello:dee0bff94e1774b646d2e6def9c028243726b380
