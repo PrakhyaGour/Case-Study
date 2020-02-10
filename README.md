@@ -48,7 +48,7 @@ cat k8s/deploy.tpl | sed 's/GIT_COMMIT/'"$tag/" > k8s/deploy.yml
 git checkout master 
 git pull origin master
 git add .
-git commit -m "Image upgrade" 
+git commit -m "Image upgrade 
 #setup your remote origin
 git remote set-url origin git@github.com:PrakhyaGour/Case-Study.git
 git push origin master 
