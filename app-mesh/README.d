@@ -68,6 +68,7 @@ Kubernetes can hook into actions on Kubernetes objects before the system execute
 -Creating a placeholder for the virtual service
  kubectl create -nprod -f 4_create_initial_mesh_components/hello_placeholder_services.yaml
  Verify:
+ 
  kubectl get svc -nprod (It should give two service(virtual and physical)
   ![alt test]  (IMG_20200210_135352.jpg)  
   You can have a look at the IMG_20200210_135352.jpg screenshot to get and idea what exactly our app mesh component looks like.
