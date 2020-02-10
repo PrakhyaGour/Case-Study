@@ -17,7 +17,7 @@ Steps:
 
 -You can check the application by putting the elb name which you get when you run "kubectl get svc" in the brower if it is working as per your expectations.
 
-Injectors/Sidecars
+{{Injectors/Sidecars}}
 What are sidecars?
 Sidecar is a microservices design pattern where a companion service runs next to your primary microservice, augmenting its abilities or intercepting resources it is utilizing. In the case of App Mesh, a sidecar container, Envoy, is used as a proxy for all ingress and egress traffic to the primary microservice. Using this sidecar pattern with Envoy we create the backbone of the service mesh, without impacting our applications.
 
@@ -32,6 +32,8 @@ Kubernetes can hook into actions on Kubernetes objects before the system execute
  For the purpose of this tutorial, we’ll make it inject the App Mesh sidecar into any new pods created in the prod namespace. To do that, we’ll label our prod namespace with appmesh.k8s.aws/sidecarInjectorWebhook=enabled.
  label the namespace:
  kubectl label namespace prod appmesh.k8s.aws/sidecarInjectorWebhook=enabled
+ 
+ {{CRD}}
 -To setup the components of app-mesh,add Custom Resource Definitions (CRDs), and the App Mesh controller logic that syncs our kubernetes cluster’s CRD state with the AWS cloud-side App Mesh control plane.
  cd CRD/
  kubectl apply -f 3_add_crds/mesh-definition.yaml
@@ -41,12 +43,14 @@ Kubernetes can hook into actions on Kubernetes objects before the system execute
  kubectl get pods -nappmesh-system
  These CRDS are using when we create CRDs and canary implementation in k8s.
 
+{{MESH}}
 -Creating a mesh
  cd mesh_component
  kubectl create -f 4_create_initial_mesh_components/mesh.yaml
  kubectl get meshes -nprod
  aws appmesh describe-mesh --mesh-name hello
-
+ 
+{{Virtual service and virtual node}}
 -Vitual Nodes and Virtual Services
  With the foundational mesh component created, we’ll continue onward to define the App Mesh Virtual Node and Virtual Service components.
  All services (physical or virtual) that will interact in any way with each other in App Mesh must first be defined as Virtual Node objects. Abstracting out services as Virtual Nodes helps App Mesh build rulesets around inter-service communication. In addition, as we define Virtual Service objects, Virtual Nodes are referenced as the ingress and target endpoints for those Virtual Services. Because of this, it makes sense to define the Virtual Nodes first.
@@ -65,6 +69,7 @@ Kubernetes can hook into actions on Kubernetes objects before the system execute
  kubectl create -nprod -f 4_create_initial_mesh_components/hello_placeholder_services.yaml
  Verify:
  kubectl get svc -nprod (It should give two service(virtual and physical)
+                         
 -Bootstrap injector
  Right now, if we describe any of the pods running in the prod namespace, we’ll notice that they are running with just one container, the same one we initially deployed it with:
  Next, run the following commands to add a date label to each pod
