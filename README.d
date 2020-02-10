@@ -28,9 +28,7 @@ Prerequisites:
 -kubectl
 -helm
 
-
 Implementing Gitops:
-
 Application:
 I have created a simple flask hello world application(app.py) and in turn creating a docker image of the same to deploy in the kubernetes using a Dockerfile.All the requirement to run the application is present in reuirement.txt.
 in operating model for building cloud native applications
