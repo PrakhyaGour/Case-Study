@@ -20,11 +20,7 @@ spec:
           image:  513293136839.dkr.ecr.ap-south-1.amazonaws.com/hello:eef2ee91c911612fb22393f262a88b5f90f9570c
           ports:
             - containerPort: 8000
-          env:
-            - name: "HW_RESPONSE"
-              value: "[\"Astrud Gilberto (Bahia, Brazil)\",\"Miles Davis (Alton, Illinois)\"]"
-
----
+          
 apiVersion: v1
 kind: Service
 metadata:
