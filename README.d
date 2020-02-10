@@ -27,7 +27,7 @@ in operating model for building cloud native applications
 
 Kubernetes Setup:
 I assume you have eks/anyk8s cluster setup in place.We have two yaml files defining the deployment and service for the application.I have used loadbalancer service for the same.
-You can switch the k8s context to your own eks cluster and deploy the above files to get the deployment done.
+You can switch the k8s context to your own eks cluster and deploy the above files to get the deployment done(K8s folder).
 
 Jenkins Setup:
 Implementing Gitops, I am using jenkins as a CI tool which gets triggered and pulls the git repo whenever any changes are commited to the repo and build the image of the application and change the deployement file with the genereated tag and push the changed files back to the git repo.We are pushing the files back so that we have only single source of truth about the infrastructure as well as the code.
