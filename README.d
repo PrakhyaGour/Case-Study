@@ -32,7 +32,7 @@ You can switch the k8s context to your own eks cluster and deploy the above file
 Jenkins Setup:
 Implementing Gitops, I am using jenkins as a CI tool which gets triggered and pulls the git repo whenever any changes are commited to the repo and build the image of the application and change the deployement file with the genereated tag and push the changed files back to the git repo.We are pushing the files back so that we have only single source of truth about the infrastructure as well as the code.
 Whenever developer commites the code with/without the PRs in place,a job will automatially gets triggered and perform the code changes,encapsulate the same in a docker image, change the k8s config accordingly and push the same on the git back.
-This makes the config and code well updated in the single source of truth
+This makes the config and code well updated in the single source of truth.If you don't have jenkins in place, you can use the jenkins deployment and service yaml files to deploy the same in your cluster.
 Steps:
 -Setup a freestyle job with webhook to git repo enabled.
 -Your jenkins config should looks like
