@@ -1,0 +1,19 @@
+apiVersion: appmesh.k8s.aws/v1beta1
+kind: VirtualService
+metadata:
+  name: hello.case-study.svc.cluster.local
+  namespace: case-study
+spec:
+  meshName: hello
+  virtualRouter:
+    name: hello-router
+  routes:
+    - name: hello-route
+      http:
+        match:
+          prefix: /
+        action:
+          weightedTargets:
+            - virtualNodeName: hello-v1
+              weight: 100
+

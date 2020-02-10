@@ -1,0 +1,15 @@
+---
+apiVersion: appmesh.k8s.aws/v1beta1
+kind: VirtualNode
+metadata:
+  name: hello-v1
+  namespace: case-study
+spec:
+  meshName: hello
+  listeners:
+    - portMapping:
+        port: 8000
+        protocol: http
+  serviceDiscovery:
+    dns:
+      hostName: hello-v1.case-study.svc.cluster.local

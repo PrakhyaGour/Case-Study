@@ -1,24 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: jazz-v2
+  name: hello-v2
+  namespace: case-study
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: jazz
+      app: hello
       version: v2
   template:
     metadata:
       labels:
-        app: jazz
+        app: hello
         version: v2
     spec:
       containers:
-        - name: jazz
+        - name: hello
           image: "672518094988.dkr.ecr.us-west-2.amazonaws.com/hello-world:v1.0"
           ports:
-            - containerPort: 9080
+            - containerPort: 8000
           env:
             - name: "HW_RESPONSE"
               value: "[\"Astrud Gilberto (Bahia, Brazil)\",\"Miles Davis (Alton, Illinois)\"]"
@@ -27,29 +28,30 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: jazz-v2
+  name: hello-v2
+  namespace: case-study
   labels:
-    app: jazz
+    app: hello
     version: v2
 spec:
   ports:
-  - port: 9080
+  - port: 8000
     name: http
   selector:
-    app: jazz
+    app: hello
     version: v2
 ---
 apiVersion: appmesh.k8s.aws/v1beta1
 kind: VirtualNode
 metadata:
-  name: jazz-v2
-  namespace: prod
+  name: hello-v2
+  namespace: case-study
 spec:
-  meshName: dj-app
+  meshName: hello
   listeners:
     - portMapping:
-        port: 9080
+        port: 8000
         protocol: http
   serviceDiscovery:
     dns:
-      hostName: jazz-v2.prod.svc.cluster.local
+      hostName: hello-v2.case-study.svc.cluster.local

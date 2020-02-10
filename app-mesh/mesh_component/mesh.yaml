@@ -1,8 +1,8 @@
 apiVersion: appmesh.k8s.aws/v1beta1
 kind: Mesh
 metadata:
-  name: dj-app
-  namespace: prod
+  name: hello
+  namespace: case-study
 spec:
-  cloudMapNamespaceName: dj-app
+  cloudMapNamespaceName: hello
   serviceDiscoveryType: dns
