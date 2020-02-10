@@ -11,14 +11,6 @@ We believe in GitOps:
 2-Git as the single place where we operate all environments 
 3-All changes are observable/verifiable 
 
-For the canary deployment will be using app-mesh of AWS in our cae-study
-
-What is App-mesh?
-
-App Mesh makes it easy to run microservices by providing consistent visibility and network traffic controls for every microservice in an application. App Mesh separates the logic needed for monitoring and controlling communications into a proxy that runs next to every microservice. App Mesh removes the need to coordinate across teams or update application code to change how monitoring data is collected or traffic is routed. This allows you to quickly pinpoint the exact location of errors and automatically re-route network traffic when there are failures or when code changes need to be deployed.
-
-You can use App Mesh with AWS Fargate, Amazon Elastic Container Service (ECS), Amazon Elastic Container Service for Kubernetes (EKS), and Kubernetes on EC2 to better run containerized microservices at scale. App Mesh uses Envoy, an open source proxy, making it compatible with a wide range of AWS partner and open source tools for monitoring microservices
-
 Prerequisites:
 -AWS account
 -EKS cluster created
@@ -28,21 +20,19 @@ Prerequisites:
 -kubectl
 -helm
 
-
 Implementing Gitops:
-
 Application:
 I have created a simple flask hello world application(app.py) and in turn creating a docker image of the same to deploy in the kubernetes using a Dockerfile.All the requirement to run the application is present in reuirement.txt.
 in operating model for building cloud native applications
 
 Kubernetes Setup:
 I assume you have eks/anyk8s cluster setup in place.We have two yaml files defining the deployment and service for the application.I have used loadbalancer service for the same.
-You can switch the k8s context to your own eks cluster and deploy the above files to get the deployment done.
+You can switch the k8s context to your own eks cluster and deploy the above files to get the deployment done(K8s folder).
 
 Jenkins Setup:
 Implementing Gitops, I am using jenkins as a CI tool which gets triggered and pulls the git repo whenever any changes are commited to the repo and build the image of the application and change the deployement file with the genereated tag and push the changed files back to the git repo.We are pushing the files back so that we have only single source of truth about the infrastructure as well as the code.
 Whenever developer commites the code with/without the PRs in place,a job will automatially gets triggered and perform the code changes,encapsulate the same in a docker image, change the k8s config accordingly and push the same on the git back.
-This makes the config and code well updated in the single source of truth
+This makes the config and code well updated in the single source of truth.If you don't have jenkins in place, you can use the jenkins deployment and service yaml files to deploy the same in your cluster.
 Steps:
 -Setup a freestyle job with webhook to git repo enabled.
 -Your jenkins config should looks like
