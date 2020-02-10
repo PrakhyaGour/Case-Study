@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: hello
+  name: hello-v1
 spec:
   type: LoadBalancer
   ports:
-    - name: hello
+    - name: hello-v1
       port: 80
       targetPort: 8000
       protocol: TCP
   selector:
-    app: hello
+    app: hello-v1
