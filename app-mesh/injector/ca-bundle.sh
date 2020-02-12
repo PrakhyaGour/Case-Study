@@ -3,7 +3,7 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-export MESH_NAME=dj-app
+export MESH_NAME=hello
 export IMAGE_NAME=602401143452.dkr.ecr.us-west-2.amazonaws.com/amazon/aws-app-mesh-inject:v0.1.0
 export MESH_REGION="" # Leave this empty
 
